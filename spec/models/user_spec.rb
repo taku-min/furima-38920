@@ -56,13 +56,13 @@ describe User, type: :model do
         @user.password ='11111111'
         @user.password_confirmation = '11111111'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password パスワードには半角英字と半角数字の両方を含めて設定してください")
+        expect(@user.errors.full_messages).to include("Password Include both letters and numbers")
       end
       it 'passwordが英字だけだと登録できない' do
         @user.password = 'aaaaaaaa'
         @user.password_confirmation = 'aaaaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password パスワードには半角英字と半角数字の両方を含めて設定してください")
+        expect(@user.errors.full_messages).to include("Password Include both letters and numbers")
       end
       it "last_nameが空では登録できない" do
         @user.last_name = ""

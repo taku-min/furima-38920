@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
 
   def index
-    @items = Item.all.order(created_at: "DESC")
+    # @items = Item.all.order(created_at: "DESC")
   end
 
   # def show
@@ -50,9 +50,9 @@ class ItemsController < ApplicationController
 
   private
 
-  def set_item
-    @item = Item.find(params[:id])
-  end
+  # def set_item
+  #   @item = Item.find(params[:id])
+  # end
 
   def item_params
     params.require(:item).permit(:image, :description, :name, :category_id, :item_status_id, :shipping_cost_id, :prefecture_id, :shipping_date_id, :price).merge(user_id: current_user.id)

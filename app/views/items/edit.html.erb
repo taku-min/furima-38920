@@ -5,11 +5,9 @@ app/assets/stylesheets/items/new.css %>
   <header class="items-sell-header">
     <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
   
-    <%#= form_with model: @item, url: item_path, local: true method: :patch do |f| %>
+    <%= form_with model: @item, url: item_path, local: true, method: :patch do |f| %>
 
-    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
     <%= render 'shared/error_messages', model: f.object %>
-    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
     <%# 商品画像 %>
     <div class="img-upload">

@@ -88,6 +88,11 @@ RSpec.describe OrderForm, type: :model do
         @order_form.valid?
         expect(@order_form.errors.full_messages).to include("Phone number can't be blank")
       end
+      it '電話番号が9桁以下だと購入できないこと' do
+        @order_form.phone_number = '090123456'
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include("Phone number is invalid")
+      end
       it '電話番号にハイフンがあると保存できないこと' do
         @order_form.phone_number = '123 - 1234 - 1234'
         @order_form.valid?
